@@ -1,0 +1,85 @@
+%                                                                 aa.dem
+% AA vers. 8.2, LaTeX class for Astronomy & Astrophysics
+% demonstration file
+%                                                       (c) EDP Sciences
+%-----------------------------------------------------------------------
+%
+%\documentclass[referee]{aa} % for a referee version
+%\documentclass[onecolumn]{aa} % for a paper on 1 column  
+%\documentclass[longauth]{aa} % for the long lists of affiliations 
+%\documentclass[rnote]{aa} % for the research notes
+%\documentclass[letter]{aa} % for the letters 
+%\documentclass[bibyear]{aa} % if the references are not structured 
+% according to the author-year natbib style
+
+%
+%\documentclass[twocolumn]{aastex61}
+
+\documentclass[%
+ aip,
+ twocolumn,
+ jmp,%
+ amsmath,amssymb,
+%preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+]{aastex61}
+\usepackage{amsmath}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{aastex}
+
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+\newcommand{\Msun}{$M_{\odot}$}
+\begin{document}
+
+%\preprint{AIP/123-QED}
+
+\title[MEASURING DARK MATTER PROFILES NON-PARAMETRICALLY IN DWARF SPHEROIDALS]{MEASURING DARK MATTER PROFILES NON-PARAMETRICALLY IN DWARF SPHEROIDALS:
+	AN APPLICATION TO LEO I}% Force line breaks with \\
+\thanks{Footnote to title of article.}
+
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+
+
+\section{LUMINOSITY DENSITY PROFILE}
+
+Every dynamical model requires a radial mass profile as an input. The first step to obtaining such mass profile is to measure a density profile for the galaxy. Previous modeling for Leo I used profiles obtained via star counts from photographic plates (Irwin & Hatzidimitriou 1995). As discussed in Noyola \& Gebhardt (2006), within dense regions, star counts suffer from incompleteness due to crowding effects. This underscores the need to obtain updated density profiles coming from more recent datasets. For this reason, we choose to make our own measurements of the surface brightness profile.
+
+Due to the necessity for wide spatial coverage, we use publicly available SDSS g-band imaging (DR12; Alam et al. 2015) for Leo I. We have to restrict ourselves to a field of ~20 arcmin in size due to the presence of a bright foreground star (Regulus) to the south of the galaxy. 
+Complementary to this, to get a higher resolution at the central parts of the profile, we use the same HST imaging (Smecker-Hane 2012) we use for the crowding estimations (see section n.). The spatial coverage of this images is much smaller, yet also much better resolved.
+
+Careful determination of the galaxy's center is important, since miscentering will flatten the inner slope of the profile. A photometric catalog was obtained from the SDSS image using daophot (Stetson 1987). We then used the method described in detail in Noyola \& Gebhardt 2006 to determine the center using this catalog.  Briefly, the method partitions the counts in angular slices around a tentative center and searches around for the minimum variation between slices given slightly offset centers to the initial guess. Our center differs only by 2.3s from that of the literature:  10h08m26.7s +12d18m27.8s to 10h08m27s +12d18m30s (Mateo et al 1998).
+
+Using the new central location, we have to measure the ellipticity and position angle of the galaxy. We do this by smoothing the SDSS image using a boxcar bi-weight convolution. We find the best fit global value for ellipticity and position angle on the smooth image with values of 0.8 and -10 deg respectively, which is consistent with the results from Irwin & Hatzidimitriou (1995). As Mateo et al 2008 already noted, the image shows variations in ellipticity and PA with radius, particularly for the central regions. Since these regions are the most affected by crowding and therefore shot noise, we opt for use a global fit with constant ellipticity and PA, which is adequate for our axisymmetric models.
+
+The last step to obtain a density profile is using a bi-weight estimator to measure the counts per area in concentric elliptical annuli. This method is the one used in Noyola \& Gebhardt (2006) for Galactic globular clusters. We use the profile from Mateo et al. (1998) to find the photometric normalization. As can be seen in Fig n, every profile agrees quite well within the 3-10 arcmin radial range. The largest difference is seen inside 3 arcmin, where our surface brightness profile departs from previous estimates by showing a shallow cusp. As a test, we performed the same measurement on an HST image, which obviously has better spatial resolution, and it also resolves many more individual stars, therefore the photometric points are a little more scattered. The HST based profile agrees well with the one from the SDSS image and it traces the shallow cusp all the way in  to 6 arcsec radius. The fact that the analysis of the two independent images yields the same shape for the central profiles makes us confident that the detected cusp is real and that our updated profile should be used for further dynamical modeling. Since our most central kinematic point is at n arcsec, we only use the photometric points obtained from the SDSS image into the models.
+
+
+
+
+\end{document}
+
+
+%\section{LUMINOSITY DENSITY PROFILE}
+%
+%Every dynamical model requires a mass model to begin with. The first step to obtaining such a mass model is to measure a density profile for the galaxy. Previous modeling for Leo I used profiles obtained via star counts from photographic plates (Irwin \& Hatzidimitriou 1995). 
+%
+%As argued by Noyola \& Gebhardt (2006), within dense regions star counts suffer from incompleteness due to crowding effects. This prompted us to make our own measurements of the surface brightness profile.
+%
+%Due to the wide spatial coverage, we use publicly available SDSS g-band imaging (DR12; Alam et al. 2015) for Leo I. We have to restrict ourselves to a field of (n) arcmin due to the presence of a bright foreground star to the south of the galaxy. [I left this blank because i know you tried getting a wider field at the end but i don't know the details]. 
+%
+%Careful determination for the galaxy's center is important, since miscentering will flatten the slope of the profile around the core. Motivated by this we used the method described in Noyola \& Gebhardt 2006 to redetermine the center using our own photometric catalog. The catalog was obtained from the SDSS image using the daophot package (Stetson 1987). Briefly, the method partitions the counts in angular slices around a tentative center and searches around for the minimum variation between slices given slightly offset centers to the initial guess. Our center differs only by 2.3s from that of the literature:  10h08m26.7s +12d18m27.8s to 10h08m27s +12d18m30s (Mateo et al 1998).
+%
+%With the central location at hand, we have to establish the ellipticity and position angle of the galaxy. We do this by smoothing the SDSS image using a boxcar bi-weight convolution. We find the best fit global value for ellipticity and position angle on the smooth image. As also noticed by Mateo et al 2008, the image actually shows variations in ellipticity and PA with radius, particularly towards the center. We decide to use a global fit to simplify the dynamical models (too honest, perhaps another better reason?). The resulting ellipticity and PA values are 0.8 and -10 deg.
+%
+%The last step to obtain a density profile is using a bi-weight estimator to measure the counts per elliptical annulus area, in concentric annuli. This method is analog to that used in Noyola \& Gebhardt (2006) for globular clusters. Results are shown in Fig n.
+%(Este ya no es el caso, pero imagine que mas fácil seria dejar esta explicación en tus manos).
+
+
